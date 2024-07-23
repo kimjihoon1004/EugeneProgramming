@@ -31,9 +31,9 @@ public class SecurityConfig {
             .authorizeHttpRequests((authz) -> authz
                     .requestMatchers(
                             new AntPathRequestMatcher("/"),
-                            new AntPathRequestMatcher("/selectDB.do"),
+                            new AntPathRequestMatcher("/selectTC.do"),
                             new AntPathRequestMatcher("/testPage"),
-                            new AntPathRequestMatcher("/test.html"),
+                            new AntPathRequestMatcher("/tc/test.html"),
                             new AntPathRequestMatcher("/visa.do")
                     ).permitAll()
                     .anyRequest().authenticated())
