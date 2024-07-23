@@ -3,6 +3,10 @@
 
 <mapper namespace="com.eugeneprogram.tc.dao.TcMapper">
     <select id="comparePw" resultType="Integer" parameterType="String">
-        SELECT COUNT(*) AS pw FROM user WHERE user_pw = PASSWORD(#{pw}) AND user_id = #{id};
+        SELECT COUNT(*) AS tc_pw FROM tc WHERE tc_pw = #{pw} AND tc_mail = #{id};
+    </select>
+    
+    <select id="getAllList" resultType="java.util.Map">
+        SELECT * FROM tc;
     </select>
 </mapper>
