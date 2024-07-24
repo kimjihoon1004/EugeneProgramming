@@ -34,7 +34,8 @@ public class SecurityConfig {
                             new AntPathRequestMatcher("/selectTC.do"),
                             new AntPathRequestMatcher("/testPage"),
                             new AntPathRequestMatcher("/tc/test.html"),
-                            new AntPathRequestMatcher("/visa.do")
+                            new AntPathRequestMatcher("/visa.do"),
+                            new AntPathRequestMatcher("/stRetrieve.html")
                     ).permitAll()
                     .anyRequest().authenticated())
             .httpBasic(withDefaults());

@@ -2,5 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.eugeneprogram.st.dao.StMapper">
-
+	<select id="getPage" parameterType="java.util.Map" resultType="java.util.Map">
+        SELECT st_name as stName, st_school as stSchool, st_id as stId
+        FROM st
+    	WHERE st_name LIKE CONCAT('%', #{searchList.search}, '%') AND st_out IS NULL
+    </select>
 </mapper>
