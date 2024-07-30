@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,13 +19,25 @@ public class StController {
 	@Autowired
 	StService stService;
 	
-	@GetMapping("/stRetrieve")
+	@GetMapping(value="stPage.do")
+	public List<Map<String, Object>> getPageList() throws Exception{
+		System.out.println("thsi is stPage");
+		return stService.getPageList();
+	}
+	
+	@GetMapping("/st/stList")
 	public void goStRetrive(HttpServletResponse response) throws IOException{
 		response.sendRedirect("/st/stRetrieve.html");
 	}
 	
-	@GetMapping(value="stPage")
-	public List<Map<String, Object>> getPageList(@RequestParam(name="search", required=false, defaultValue="") String search) throws Exception{
-		return stService.getPageList(search);
+	@PostMapping(value="stAdd.do")
+	public void addStudent(@RequestParam("name") String name,
+						   @RequestParam("school") String school) throws Exception{
+		
+	}
+	
+	@GetMapping("/st/stForm")
+	public void goStForm(HttpServletResponse response) throws IOException{
+		response.sendRedirect("/st/stForm.html");
 	}
 }

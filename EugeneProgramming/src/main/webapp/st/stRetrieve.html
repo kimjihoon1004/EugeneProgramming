@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
+    <title>ajax_test</title>
+    </head>
+    <body>
+		<h1>st list</h1>
+		<button onclick="getData()">click_here</button>
+        <script>
+            function getData(){
+                alert("getData")
+                $.ajax({
+                    type : "GET",
+                    url : "/stPage.do",
+                    contentType : "application/json",
+                    dataType : "json",
+                    success : function(data){
+                        alert("success")
+                        var tblrestult = data;
+                        var str = "";
+                        
+                        $.each(tblrestult, function(i){
+							str += "<TR>"
+							str += "<TD>" + tblrestult[i].stId + "</TD>"
+							str += "<TD>" + tblrestult[i].stName + "</TD>"
+							str += "<TD>" + tblrestult[i].stSchool + "</TD>"
+							str += "</TR>";
+						})
+						$("#st_table").append(str);
+						
+                    },
+                    error : function(data){
+                        alert("error")
+                    }
+                });
+            }
+        </script>
+    </body>
+    <table id="st_table" border = "1">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Name</th>
+				<th>School</th>
+			</tr>
+		</thead>
+		<tbody>
+			
+		</tbody>
+	</table>
+</html>

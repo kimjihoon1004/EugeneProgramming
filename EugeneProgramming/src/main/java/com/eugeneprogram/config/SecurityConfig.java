@@ -35,7 +35,10 @@ public class SecurityConfig {
                             new AntPathRequestMatcher("/testPage"),
                             new AntPathRequestMatcher("/tc/test.html"),
                             new AntPathRequestMatcher("/visa.do"),
-                            new AntPathRequestMatcher("/stRetrieve.html")
+                            new AntPathRequestMatcher("/st/stList"),
+                            new AntPathRequestMatcher("/st/stRetrieve.html"),
+                            new AntPathRequestMatcher("/stPage.do")
+                            
                     ).permitAll()
                     .anyRequest().authenticated())
             .httpBasic(withDefaults());

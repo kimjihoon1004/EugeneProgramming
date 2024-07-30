@@ -14,10 +14,14 @@ public class StService {
 	@Autowired
 	StMapper stMapper;
 	
-	public List<Map<String, Object>> getPageList(String search){
+	public List<Map<String, Object>> getPageList() throws Exception{
+		/*
 		Map<String, Object> searchList = new HashMap<String, Object>();
-		searchList.put("search", search);
-		stMapper.getPage(searchList);
-		return null;
+		searchList.put("search", "");
+		
+		System.out.println(searchList);
+		*/
+		
+		return stMapper.getPageList();
 	}
 }

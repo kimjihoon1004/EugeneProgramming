@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface StMapper {
-	public List<Map<String, Object>> getPage(Map<String, Object>searchList);
+	public List<Map<String, Object>> getPageList() throws Exception;
 }
